@@ -94,7 +94,7 @@ const SignUpForm = () => {
               onChange={handleChange}
               className={`w-full px-4 py-3 border ${errors.firstName ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-blue-300 focus:border-transparent outline-none transition`}
               placeholder="Enter your first name"
-              aria-invalid={errors.firstName ? "true" : "false"}
+              {...(errors.firstName && { 'aria-invalid': 'true' as const })}
               aria-describedby={errors.firstName ? 'firstName-error' : undefined}
             />
             {errors.firstName && (
@@ -117,7 +117,7 @@ const SignUpForm = () => {
               onChange={handleChange}
               className={`w-full px-4 py-3 border ${errors.lastName ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-blue-300 focus:border-transparent outline-none transition`}
               placeholder="Enter your last name"
-              aria-invalid={errors.lastName ? "true" : "false"}
+              {...(errors.lastName && { 'aria-invalid': 'true' as const })}
               aria-describedby={errors.lastName ? 'lastName-error' : undefined}
             />
             {errors.lastName && (
@@ -140,7 +140,7 @@ const SignUpForm = () => {
               onChange={handleChange}
               className={`w-full px-4 py-3 border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-blue-300 focus:border-transparent outline-none transition`}
               placeholder="Enter your email address"
-              aria-invalid={errors.email ? "true" : "false"}
+              {...(errors.email && { 'aria-invalid': 'true' as const })}
               aria-describedby={errors.email ? 'email-error' : undefined}
             />
             {errors.email && (
@@ -164,7 +164,7 @@ const SignUpForm = () => {
                 onChange={handleChange}
                 className={`w-full px-4 py-3 pr-12 border ${errors.password ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-blue-300 focus:border-transparent outline-none transition`}
                 placeholder="Enter your password"
-                aria-invalid={errors.password ? "true" : "false"}
+                {...(errors.password && { 'aria-invalid': 'true' as const })}
                 aria-describedby={errors.password ? 'password-error' : undefined}
               />
               <button

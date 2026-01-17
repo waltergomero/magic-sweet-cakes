@@ -87,7 +87,7 @@ const SignInForm = () => {
               onChange={handleChange}
               className={`w-full px-4 py-3 border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-blue-300 focus:border-transparent outline-none transition`}
               placeholder="Enter your email address"
-              aria-invalid={errors.email ? 'true' : 'false'}
+              {...(errors.email && { 'aria-invalid': 'true' as const })}
               aria-describedby={errors.email ? 'email-error' : undefined}
             />
             {errors.email && (
@@ -111,7 +111,7 @@ const SignInForm = () => {
                 onChange={handleChange}
                 className={`w-full px-4 py-3 pr-12 border ${errors.password ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-blue-300 focus:border-transparent outline-none transition`}
                 placeholder="Enter your password"
-                aria-invalid={errors.password ? 'true' : 'false'}
+                {...(errors.password && { 'aria-invalid': 'true' as const })}
                 aria-describedby={errors.password ? 'password-error' : undefined}
               />
               <button
